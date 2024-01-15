@@ -5,8 +5,9 @@
 \definecolor{THMGray}{RGB}{74, 92, 102}
 \definecolor{THMGreen}{RGB}{128, 186, 36}
 
-%\logo{\vspace{0.3\paperheight}\includegraphics[angle=90,scale=0.05]{themeRessources/vi.png}}
+%\logo{\vspace{0.3\paperheight}\includegraphics[angle=90,scale=0.05]{themeRessources/THM.png}}
 
+%\titlegraphic{\includegraphics[scale=0.07]{themeRessources/exampleLogo.png}}
 
 \setbeamercolor{fuss}{fg=white, bg=THMGray}
 \setbeamercolor{title}{fg=THMGray}
@@ -24,6 +25,7 @@
 
 % Create conditional for no displaying logo on some slides
 \newif\ifplacelogo % create a new conditional
+\logo{\ifplacelogo\vspace{0.3\paperheight}\includegraphics[angle=90,scale=0.05]{themeRessources/THM.png}\fi}
 \placelogofalse
 
 \setbeamersize{text margin left=5mm,text margin right=5mm} 
@@ -42,7 +44,8 @@
 \setbeamertemplate{headline}{
 	\vspace*{4mm}
 	\hfill
-	\hspace{3mm}\includegraphics[width=2cm]{themeRessources/THM.png}\hspace*{4mm}
+	%\includegraphics[width=2cm]{themeRessources/THM.png}\hspace{3mm}
+	\includegraphics[width=2cm]{themeRessources/THM.png}\hspace*{4mm}
 }
 
 \setbeamertemplate{frametitle}{
@@ -54,16 +57,19 @@
 }
 
 \AtBeginPart{
-
+  \placelogofalse
   \let\insertpartnumber\relax
   \let\partname\relax
   \frame{\partpage}
+  \placelogofalse
 }
 
 \AtBeginSection{
+  \placelogofalse
   \let\insertsectionnumber\relax
   \let\sectionname\relax
   \frame{\sectionpage}
+  \placelogotrue
 }
 
 \setbeamertemplate{footline}{
